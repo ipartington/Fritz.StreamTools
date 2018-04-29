@@ -122,10 +122,14 @@ namespace Fritz.StreamTools.Services
 		/// NOTE: This will hit the REST API when cached value expires
 		/// Will be null if stream is offline
 		/// </summary>
+<<<<<<< HEAD
 		public TimeSpan? Uptime
 		{
 			get => _Mixer.GetUptime();
 		}
+=======
+		public ValueTask<TimeSpan?> Uptime() => new ValueTask<TimeSpan?>(_Mixer.GetUptime());
+>>>>>>> 4c1979d8e168fdfe4c5570807a38998d7322ab6b
 
 		public void Dispose()
 		{

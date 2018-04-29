@@ -24,6 +24,10 @@
     <ProjectReference Include="..\Fritz.Chatbot\Fritz.Chatbot.csproj" />
     <ProjectReference Include="..\Fritz.StreamLib.Core\Fritz.StreamLib.Core.csproj" />
     <ProjectReference Include="..\Fritz.StreamTools\Fritz.StreamTools.csproj" />
+<<<<<<< HEAD
+=======
+    <ProjectReference Include="..\Fritz.Twitch\Fritz.Twitch.csproj" />
+>>>>>>> 4c1979d8e168fdfe4c5570807a38998d7322ab6b
   </ItemGroup>
 
 </Project>

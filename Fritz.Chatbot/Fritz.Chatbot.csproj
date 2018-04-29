@@ -20,10 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD:Fritz.Chatbot/Fritz.Chatbot.csproj
     <Folder Include="Helpers\" />
   </ItemGroup>
 
   <ItemGroup>
+=======
+>>>>>>> 4c1979d8e168fdfe4c5570807a38998d7322ab6b:Fritz.Chatbot/Fritz.Chatbot.csproj
     <None Update="SkeetQuotes.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

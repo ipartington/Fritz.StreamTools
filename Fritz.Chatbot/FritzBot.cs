@@ -93,7 +93,11 @@ namespace Fritz.StreamTools.Services
 		{
 			foreach (var chat in _chatServices)
 			{
+<<<<<<< HEAD
 				chat.ChatMessage += Chat_ChatMessage;
+=======
+				chat.ChatMessage += OnChat_ChatMessage;
+>>>>>>> 4c1979d8e168fdfe4c5570807a38998d7322ab6b
 				chat.UserJoined += Chat_UserJoined;
 				chat.UserLeft += Chat_UserLeft;
 			}
@@ -104,7 +108,11 @@ namespace Fritz.StreamTools.Services
 		{
 			foreach (var chat in _chatServices)
 			{
+<<<<<<< HEAD
 				chat.ChatMessage -= Chat_ChatMessage;
+=======
+				chat.ChatMessage -= OnChat_ChatMessage;
+>>>>>>> 4c1979d8e168fdfe4c5570807a38998d7322ab6b
 				chat.UserJoined -= Chat_UserJoined;
 				chat.UserLeft -= Chat_UserLeft;
 			}
@@ -113,9 +121,28 @@ namespace Fritz.StreamTools.Services
 
 		#endregion
 
+<<<<<<< HEAD
 		private async void Chat_ChatMessage(object sender, ChatMessageEventArgs e)
 		{
 
+=======
+		private async void OnChat_ChatMessage(object sender, ChatMessageEventArgs e)
+		{
+			// async void as Event callback
+			try
+			{
+				await Chat_ChatMessage(sender, e);
+			}
+			catch (Exception ex)
+			{
+				// Don't let exception escape from async void
+				_logger.LogError($"{DateTime.UtcNow}: Chat_ChatMessage - Error {Environment.NewLine}{ex}");
+			}
+		}
+
+	  private async Task Chat_ChatMessage(object sender, ChatMessageEventArgs e)
+	  {
+>>>>>>> 4c1979d8e168fdfe4c5570807a38998d7322ab6b
 			// message is empty OR message doesn't start with ! AND doesn't end with ?
 
 			if (e.Message.EndsWith("?"))
