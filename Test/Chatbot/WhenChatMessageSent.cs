@@ -95,7 +95,7 @@ namespace Test.Chatbot
 
 			_chatservice.Raise(cs => cs.ChatMessage += null, args);
 			_chatservice.Verify(sm => sm.SendMessageAsync(
-						It.Is<string>(x => x.StartsWith("Supported commands: !echo !help !ping !quote !skeet"))), Times.AtLeastOnce);
+						It.Is<string>(x => x.Contains("Supported commands: "))), Times.AtLeastOnce);
 		}
 
 		[Fact]
@@ -162,7 +162,7 @@ namespace Test.Chatbot
 
 			var args = new ChatMessageEventArgs
 			{
-				Message = "!help",
+				Message = "!ping",
 				ServiceName = "TestService",
 				UserName = "Moderator",
 				IsModerator = true,
@@ -172,8 +172,9 @@ namespace Test.Chatbot
 			_chatservice.Raise(cs => cs.ChatMessage += null, args);
 			_chatservice.Raise(cs => cs.ChatMessage += null, args);
 
-			_chatservice.Verify(sm => sm.SendMessageAsync(
-						It.Is<string>(x => x.StartsWith("Supported commands: !echo !help !ping !quote !skeet"))), Times.Exactly(2));
+			_chatservice.Verify(sm => sm.SendWhisperAsync(
+						args.UserName,
+						It.Is<string>(x => x.StartsWith("pong"))), Times.Exactly(2));
 		}
 	}
 }
